@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="icon" type="image/png" href="images/peto.png" sizes="32x32">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="css/sidebar.css?version=1.0.01">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script> <!--Extraido de: https://ionicons.com/ -->
+		<link rel="stylesheet" href="css/icofont.min.css?version=1.0.1.2">
+
+    <title>Admninistración de Hospedaje</title>
+</head>
+<body>
+	<style>
+	#contenidoBlanco{
+		background-color: #fff; border-radius: 5px; min-height: 80vh;
+	}
+	.card-body{padding: 0.5rem 1.25rem;}
+	.card-deck i{ font-size: 3rem;}
+	.card-deck h3{ font-size: 1.5rem; color:white}
+	
+	.card-footer{border-color: #dfdfdf!important;}
+	.bg-purple { background-color: #6f42c1; }
+	.bg-purple h4{color: white!important;}
+	.cama{ padding:5px; border: 1px solid #851b9a}
+	#divCamas h2, #divCamas h3{margin-bottom: 0px;}
+	#divCamas h2{font-size: 2.5rem;}
+	.divCama{cursor:pointer;}
+	#btnBuscarReniec{background-color: #004370; color: #fff;}
+</style>
+<div class="wrapper">
+<!-- Sidebar  -->
+<nav id="sidebar">
+		<div id="dismiss" class="d-flex justify-content-center align-items-center">
+				<i class="icofont-simple-left-down"></i>
+		</div>
+
+		<div class="sidebar-header">
+				<img class="img-fluid" src="images/hotel.png">
+		</div>
+
+		<ul class="list-unstyled components">
+				<p class="text-center"><small>Versión 2.2c</small></p>
+				<li class="active">
+						<a href="#homeSubmenu" class="d-flex align-items-center"><ion-icon name="wallet-sharp"></ion-icon> <span class="liText">Recepción</span></a>
+				</li>
+				<li>
+						<a href="#" class="d-flex align-items-center"><ion-icon name="airplane-sharp"></ion-icon> <span class="liText">Reservas</span></a>
+				</li>
+				<li>
+						<a href="#" class="d-flex align-items-center"><ion-icon name="people-sharp"></ion-icon> <span class="liText">Clientes</span></a>
+				</li>
+				<li>
+						<a href="#" class="d-flex align-items-center"><ion-icon name="cart"></ion-icon> <span class="liText">Caja</span></a>
+				</li>
+				<li>
+					<a href="#" class="d-flex align-items-center"><ion-icon name="gift"></ion-icon> <span class="liText">Productos</span></a>
+				</li>
+				<li>
+						<a href="#" class="d-flex align-items-center"><ion-icon name="car-sport-sharp"></ion-icon> <span class="liText">Cochera</span></a>
+				</li>
+				<li>
+						<a href="#" class="d-flex align-items-center"><ion-icon name="reader-sharp"></ion-icon> <span class="liText">Reportes</span></a>
+				</li>
+				<li>
+						<a href="#" class="d-flex align-items-center"><ion-icon name="options"></ion-icon> <span class="liText">Configuraciones</span></a>
+				</li>
+		</ul>
+</nav>
+<!-- Fin Sidebar  -->
+			
+<!--Barra de Menú-->
+<nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #851b9a">
+	<div class="container-fluid">
+		<button type="button" id="sidebarCollapse" class="btn btn-outline-light tieneMostrar mr-3 px-2" >
+			<i class="icofont-rounded-right-up"></i>
+		</button>
+										
+		<a class="navbar-brand" href="#!" id="btnBrand">
+			<img src="images/logo.png?version=1.0" alt="" width="235" height="auto">
+		</a>
+		<a class="navbar-brand" id="brandTexto">Hotel administración</a>
+		<button class="btn btn-outline-light d-inline-block d-lg-none ml-auto px-2" id="btnSubNavegacion" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<i class="icofont-caret-down"></i>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="nav navbar-nav ml-auto">
+					<li class="nav-item d-none">
+							<a class="nav-link" href="#"><i class="icofont-user-alt-1"></i> Mi perfil</a>
+					</li>
+				
+				<li class="nav-item dropdown ">
+						<a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="dropdown07" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><ion-icon name="settings"></ion-icon>  <span class="px-2">Opciones</span> </a>
+					<div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown07">
+						<a class="dropdown-item" href="#"><i class="icofont-user-alt-1"></i> Mi perfil</a>
+						<a class="dropdown-item" href="#"><i class="icofont-reply-all"></i> Cerrar sesión</a>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>
+<!--Fin de barra de menú-->
+<div id="app">
+<div id="content" class="px-5 pt-5">
+	<h3><ion-icon name="wallet-sharp"></ion-icon> Recepción</h3>
+	<div id="contenidoBlanco" class="p-3">
+		<!-- Contenido de la Página  -->
+	
+		<div class="container">
+			<div class="card-deck">
+				<div class="card bg-primary text-white">
+					<div class="card-body row">
+						<div class="col-4 d-flex align-items-center"><i class="icofont-bed"></i></div>
+						<div class="col">
+							<small>Libres</small>
+							<h3>8</h3>
+						</div>
+					</div>
+				</div>
+				<div class="card text-white bg-danger">
+					<div class="card-body row">
+						<div class="col-4 d-flex align-items-center"><i class="icofont-hotel"></i></div>
+						<div class="col">
+							<small>Ocupadas</small>
+							<h3>2</h3>
+						</div>
+					</div>
+				</div>
+				<div class="card text-white bg-warning">
+					<div class="card-body row">
+						<div class="col-4 d-flex align-items-center"><i class="icofont-travelling"></i></div>
+						<div class="col">
+							<small>Limpieza</small>
+							<h3>2</h3>
+						</div>
+					</div>
+				</div>
+				<div class="card text-white bg-dark">
+					<div class="card-body row">
+						<div class="col-4 d-flex align-items-center"><i class="icofont-beach-bed"></i></div>
+						<div class="col">
+							<small>Reservaciones</small>
+							<h3>2</h3>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+
+		<section>
+			<div class="d-flex align-items-center p-3 my-3 bg-purple rounded">
+				<h4>Registro</h4>
+			</div>
+			<div class="container-fluid" id="divCamas">
+				<div class="row row-cols-2 row-cols-md-5">
+
+					<div class="col p-3" v-for="(cama, index) in camas">
+
+
+
+						<div class="card border-primary divCama" v-if="cama.estado=='libre'" @click="llamarCama(index)">
+							<div class="card-body row">
+								<div class="col d-flex justify-content-center align-items-center">
+									<h2 class="text-primary"><ion-icon name="checkmark-circle-sharp"></ion-icon></h2>
+								</div>
+								<div class="col-9">
+									<h3 class="text-primary">{{cama.habitacion}}</h3>
+									<small class="text-primary">{{cama.descripcion}}</small>
+								</div>
+								
+							</div>
+							<div class="card-footer bg-transparent d-flex justify-content-between"><strong class="text-primary">S/ {{cama.precio}}</strong> <small class="text-primary"><strong>Habitación disponible</strong></small></div>
+						</div>
+
+
+						<div class="card border-danger divCama" v-if="cama.estado=='ocupado'" @click="llamarCama(index)">
+							<div class="card-body row">
+								<div class="col d-flex justify-content-center align-items-center">
+									<h2 class="text-danger"><i class="icofont-hotel"></i></h2>
+								</div>
+								<div class="col-9">
+									<h3 class="text-danger">{{cama.habitacion}}</h3>
+									<small class="text-danger">{{cama.descripcion}}</small>
+								</div>
+								
+							</div>
+							<div class="card-footer bg-transparent d-flex justify-content-between"><strong class="text-danger">S/ {{cama.precio}}</strong> <small class="text-danger"><strong>Habitación Ocupada</strong></small></div>
+						</div>
+
+
+						<div class="card border-secondary divCama" v-if="cama.estado=='reservado'" @click="llamarCama(index)">
+							<div class="card-body row">
+								<div class="col d-flex justify-content-center align-items-center">
+									<h2 class="text-secondary"><i class="icofont-beach-bed"></i></h2>
+								</div>
+								<div class="col-9">
+									<h3 class="text-secondary">{{cama.habitacion}}</h3>
+									<small class="text-secondary">{{cama.descripcion}}</small>
+								</div>
+								
+							</div>
+							<div class="card-footer bg-transparent d-flex justify-content-between"><strong class="text-secondary">S/ {{cama.precio}}</strong> <small class="text-secondary"><strong>Habitación Reservada</strong></small></div>
+						</div>
+
+
+						<div class="card border-warning divCama" v-if="cama.estado=='limpieza'" @click="llamarCama(index)">
+							<div class="card-body row">
+								<div class="col d-flex justify-content-center align-items-center">
+									<h2 class="text-warning"><i class="icofont-travelling"></i></h2>
+								</div>
+								<div class="col-9">
+									<h3 class="text-warning">{{cama.habitacion}}</h3>
+									<small class="text-warning">{{cama.descripcion}}</small>
+								</div>
+								
+							</div>
+							<div class="card-footer bg-transparent d-flex justify-content-between"><strong class="text-warning">S/ {{cama.precio}}</strong> <small class="text-warning"><strong>Habitación por limpiar</strong></small></div>
+						</div>
+
+
+				
+
+
+					
+				</div>
+			</div>
+		</section>
+	
+
+<!-- Modal para datos de la cama -->
+<div class="modal fade" id="modalCama" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h5 class="modal-title pb-3" id="staticBackdropLabel">Habitación {{habNumero}}</h5>
+        <label for="">Modelo: Habitación Matrimonial</label><br>
+        <label for="">Estado actual: <strong class="text-capitalize">{{habEstado}}</strong></label><br>
+				<label for="">Precio: S/ {{parseFloat(habPrecio).toFixed(2)}}</label>
+				<hr>
+				<strong>Ocupantes:</strong> <br>
+				<div class="form-group">
+					<label for="exampleFormControlSelect1">Adultos</label>
+					<select class="form-control" id="exampleFormControlSelect1" v-model="habAdultos">
+						<option value="0">0</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label for="exampleFormControlSelect1">Niños</label>
+					<select class="form-control" id="exampleFormControlSelect1" v-model="habNinos">
+						<option value="0">0</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+					</select>
+				</div>
+			
+				<label for="">Responsable</label>
+				<div class="form-group">
+					<div class="input-group mb-3">
+						<input type="text" class="form-control" placeholder="D.N.I." aria-label="D.N.I." aria-describedby="btnBuscarDB" v-model="habDNI">
+						<div class="input-group-append">
+							<button class="btn btn-outline-secondary" type="button" id="btnBuscarDB"><i class="icofont-search-1"></i></button>
+							<button class="btn btn-outline-secondary" type="button" id="btnBuscarReniec"><img src="images/reniec.png" width="20px" alt=""> Reniec</button>
+						</div>
+					</div>
+					<input type="text" class='form-control' placeholder="Apellidos y nombres del responsable" v-model="habResponsable">
+				</div>
+
+				<div class="form-group">
+					<label for="">Fecha de inicio <small class="text-muted" v-if="habComienza=='' || habComienza=='Invalid date'">No indicaron fecha inicial</small></label>
+					<input type="date" class='form-control' id="txtFecha" v-model="habComienza">
+				</div>
+				<div class="form-group">
+					<label for="">Fecha de salida <small class="text-muted" v-if="habComienza=='' || habComienza=='Invalid date'">No indicaron fecha final</small></label>
+					<input type="date" class='form-control' id="txtFecha" v-model="habTermina">
+				</div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div>
+    </div>
+  </div>
+</div>
+	    
+	<!-- Fin de Contenido de la Página  -->
+	</div>
+</div>
+</div>
+
+<!-- Inicio de #wrapper  -->
+</div>
+<div class="overlay"></div>
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="js/inicializacion.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous"></script>
+
+<script>
+var app = new Vue({
+  el: '#app',
+  data: {
+    camas:[
+		{habitacion: 101, descripcion: 'Habitación Simple', precio: 25, estado: 'libre', dni:'', cliente: '', direccion:'', personas: 0, niños: 0, fecha: '', hasta: ''},
+		{habitacion: 102, descripcion: 'Habitación Doble', precio: 25, estado: 'libre', dni:'', cliente: '', direccion:'', personas: 0, niños: 0, fecha: '', hasta: ''},
+		{habitacion: 103, descripcion: 'Habitación doble', precio: 35, estado: 'ocupado', dni:'', cliente: 'Sin datos', direccion:'', personas: 2, niños: 1, fecha: '2020-02-20 11:15', hasta: '2020-02-23 12:00'},
+		{habitacion: 104, descripcion: 'Habitación con Jacuzzi', precio: 35, estado: 'reservado', dni:'', cliente: 'Sin datos', direccion:'', personas: 2, niños: 0, fecha: '2020-02-20 00:00', hasta: '2020-02-23 17:18'},
+		{habitacion: 105, descripcion: 'Habitación Matrimonial', precio: 65, estado: 'reservado', dni:'', cliente: 'Sin datos', direccion:'', personas: 2, niños: 2, fecha: '2020-02-20 00:00', hasta: '2020-02-23 11:35'},
+		{habitacion: 204, descripcion: 'Habitación Matrimonial', precio: 65, estado: 'limpieza', dni:'', cliente: 'Sin datos', direccion:'', personas: 2, niños: 2, fecha: '2020-02-20 00:00', hasta: '2020-02-23 11:35'},
+		],
+		habNumero:0, habEstado:'', habDNI:'', habResponsable:'', habAdultos:0, habNinos:0, habComienza:'', habPrecio:0, habTermina:''
+  }, methods:{
+		llamarCama: function(idCama){
+			this.habNumero = this.camas[idCama].habitacion;
+			this.habEstado = this.camas[idCama].estado;
+			this.habPrecio = this.camas[idCama].precio;
+			this.habResponsable = this.camas[idCama].cliente;
+			this.habAdultos = this.camas[idCama].personas;
+			this.habNinos = this.camas[idCama].niños;
+			this.habComienza = moment(this.camas[idCama].fecha, 'YYYY-MM-DD H:mm').format('YYYY-MM-DD');
+			this.habTermina = moment(this.camas[idCama].hasta, 'YYYY-MM-DD H:mm').format('YYYY-MM-DD');
+			
+			
+			$('#modalCama').modal('show');
+			
+		}
+	}
+})
+</script>
+</body>
+</html>
