@@ -298,9 +298,9 @@
 							
 							<div class="" v-if="ocultarBotones==true ">
 								<button class="btn btn-outline-secondary btn-block" @click="ocultarBotones=!ocultarBotones;"><i class="icofont-simple-left"></i> Regresar</button>
-								<button class="btn btn-outline-success btn-block"><i class="icofont-refresh"></i> Actualizar</button>
-								<button class="btn btn-outline-primary btn-block"><ion-icon name="save"></ion-icon> Guardar</button>
-								<button class="btn btn-outline-danger btn-block"><i class="icofont-refresh"></i> Cancelar</button>
+								<button class="btn btn-outline-success btn-block" v-if="habEstado=='ocupado' || habEstado=='reservado'"><i class="icofont-refresh"></i> Actualizar</button>
+								<button class="btn btn-outline-primary btn-block" v-if="habEstado=='libre'"><ion-icon name="save"></ion-icon> Guardar</button>
+								<button class="btn btn-outline-danger btn-block" v-if="habEstado=='ocupado' || habEstado=='reservado'"><i class="icofont-refresh"></i> Cancelar</button>
 							</div>
 							
 						</div>
@@ -529,6 +529,12 @@
 								<button class="btn btn-outline-primary ml-3" @click="habilitarCuarto(idCuarto)"><i class="icofont-check-circled"></i> Listo, anular</button>
 								<button class="btn btn-outline-danger" @click="ocultarBotones=!ocultarBotones;"><i class="icofont-close-circled"></i> Aún no</button>
 							</div>
+							<div v-if="queMostrar=='anular'">
+								<h4>Pagos</h4>
+								<p>Sección para pagos</p>
+								<button class="btn btn-outline-primary ml-3" @click="ocultarBotones=!ocultarBotones;"><i class="icofont-check-circled"></i> Listo, anular</button>
+								<button class="btn btn-outline-danger" @click="ocultarBotones=!ocultarBotones;"><i class="icofont-close-circled"></i> Aún no</button>
+							</div>
 			
 						
 						</div>
@@ -668,8 +674,9 @@ var app = new Vue({
 					onChooseEvent: function() {
 						var producto = $("#txtProductos").getSelectedItemData().nombre;
 						var precio = $("#txtProductos").getSelectedItemData().precio;
+						var lista =[];
 						//console.log('precio es:' + precio)
-						app.listaProductos.push({'nombre': producto, 'precio': precio, cantidad: 1, 'fecha': moment().format('DD/MM/YYYY h:mm a')  });
+						lista.push({'nombre': producto, 'precio': precio, cantidad: 1, 'fecha': moment().format('DD/MM/YYYY h:mm a')  });
 						$("#txtProductos").val('');
 					}
 				}
